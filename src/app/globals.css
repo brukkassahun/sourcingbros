@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-navy font-sans antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  @apply bg-gold text-navy;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-cream;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-line rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-faint;
+}
+
+/* Typography + UI primitives */
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-navy/15 bg-white px-4 py-1.5 font-sans text-[11px] font-bold uppercase tracking-[0.22em] text-navy/70;
+  }
+  .eyebrow-light {
+    @apply inline-flex items-center gap-2 rounded-full border border-gold/30 bg-white/5 px-4 py-1.5 font-sans text-[11px] font-bold uppercase tracking-[0.22em] text-gold;
+  }
+  .display-xl {
+    @apply font-display text-4xl font-black leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:text-6xl;
+  }
+  .display-lg {
+    @apply font-display text-3xl font-black leading-[1.1] tracking-[-0.01em] sm:text-4xl lg:text-5xl;
+  }
+  .display-md {
+    @apply font-display text-2xl font-black leading-[1.15] tracking-[-0.01em] sm:text-3xl;
+  }
+  .title {
+    @apply font-display text-xl font-bold tracking-[-0.01em];
+  }
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 font-sans text-xs font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-strong hover:scale-[1.02] active:scale-[0.98];
+  }
+  .btn-dark {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 font-sans text-xs font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-navy-light hover:scale-[1.02] active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-navy/20 px-7 py-3.5 font-sans text-xs font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:border-navy hover:bg-navy hover:text-white;
+  }
+  .btn-ghost-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-7 py-3.5 font-sans text-xs font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-white hover:text-navy;
+  }
+  .input-field {
+    @apply w-full appearance-none rounded-xl border border-line bg-white px-5 py-3.5 font-sans text-sm font-medium text-navy outline-none transition-colors focus:border-gold;
+  }
+  .card-service {
+    @apply overflow-hidden rounded-2xl border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_24px_60px_-20px_rgba(15,27,45,0.15)];
+  }
+  .section-pad {
+    @apply px-4 py-16 sm:px-6 sm:py-20 lg:py-28;
+  }
+}
+
+/* Shine sweep on hover */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: -40% -60%;
+  background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.14) 50%, transparent 58%);
+  transform: translateX(-120%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.shine:hover::after {
+  transform: translateX(120%);
+}
+
+/* Image protection */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+a, button {
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float {
+    animation: none !important;
+  }
+}
