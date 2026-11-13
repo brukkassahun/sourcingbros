@@ -13,6 +13,8 @@ import {
   PackageCheck,
   Globe,
   Clock,
+  Hammer,
+  ShoppingBag,
   ArrowRight,
   Check,
   Star,
@@ -34,6 +36,8 @@ const iconMap: Record<string, React.ElementType> = {
   "package-check": PackageCheck,
   globe: Globe,
   clock: Clock,
+  hammer: Hammer,
+  "shopping-bag": ShoppingBag,
 };
 
 export default function HomePage() {
