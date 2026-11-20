@@ -4,6 +4,8 @@ import {
   ArrowRight, Check, Clock, FileText, Camera, MapPin, Package,
 } from "lucide-react";
 import { processSteps, whatsappLink } from "@/lib/site";
+import { SEO } from "@/lib/seo";
+import { BreadcrumbSchema } from "@/components/StructuredData";
 import Reveal from "@/components/Reveal";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -11,11 +13,19 @@ const iconMap: Record<string, React.ElementType> = {
   "shield-check": ShieldCheck, truck: Truck,
 };
 
-export const metadata = { title: "How It Works", description: "Five simple steps from your request to delivery. Tell us what you need, we source and quote, inspect quality, and ship to your door." };
+export const metadata = {
+  title: SEO.pages.howItWorks.title,
+  description: SEO.pages.howItWorks.description,
+};
 
 export default function HowItWorksPage() {
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "How It Works", path: "/how-it-works" },
+      ]} />
+
       {/* Hero */}
       <section className="bg-navy-gradient text-white">
         <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-6 sm:py-24">
@@ -23,7 +33,7 @@ export default function HowItWorksPage() {
             <span className="h-1.5 w-1.5 rounded-full bg-gold" /> The Process
           </span>
           <h1 className="display-lg mt-5">
-            Simple, Transparent,
+            How to Source from China
             <span className="block text-gold">Step by Step</span>
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
@@ -97,6 +107,26 @@ export default function HowItWorksPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Block */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="rounded-3xl border border-line bg-white p-8 sm:p-12">
+            <h2 className="display-md text-navy">The China Sourcing Process Explained</h2>
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted">
+              <p>
+                Understanding how to source from China is the first step toward importing quality products at factory-direct prices. As your China sourcing agent, SourcingBros simplifies the entire procurement process into five transparent stages — from your initial product request to final delivery at your destination. Our step-by-step approach eliminates the guesswork, language barriers, and quality risks that often come with sourcing from China independently.
+              </p>
+              <p>
+                The process begins when you tell us what you need — whether it's vehicles, auto parts, electronics, or custom-manufactured goods. Within 48 hours, our team in Guangzhou identifies verified factories, negotiates the best factory-direct pricing, and sends you an itemized quote with transparent pricing that separates product cost, service fee, and shipping. You review the quote, approve the sample, and we move into production with quality inspection at every milestone.
+              </p>
+              <p>
+                Before any product leaves China, we conduct a thorough pre-shipment quality inspection and send you photo and video reports for approval. Nothing ships without your green light. Once approved, we handle all export documentation, customs clearance, and global shipping by sea, air, or express to 40+ countries. You receive real-time tracking and full documentation — including commercial invoices, packing lists, and certificates of origin — making import from China a seamless, end-to-end experience.
+              </p>
+            </div>
           </div>
         </div>
       </section>

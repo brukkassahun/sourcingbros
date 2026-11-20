@@ -1,13 +1,23 @@
 import Link from "next/link";
 import { ArrowRight, Factory, ShieldCheck, Globe, Users, HandshakeIcon } from "lucide-react";
 import { stats, whatsappLink } from "@/lib/site";
+import { SEO } from "@/lib/seo";
+import { BreadcrumbSchema } from "@/components/StructuredData";
 import Reveal from "@/components/Reveal";
 
-export const metadata = { title: "About", description: "SourcingBros is your direct factory sourcing partner in China. We connect global buyers to verified Chinese factories with transparent pricing and quality inspection." };
+export const metadata = {
+  title: SEO.pages.about.title,
+  description: SEO.pages.about.description,
+};
 
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+      ]} />
+
       {/* Hero */}
       <section className="bg-navy-gradient text-white">
         <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-6 sm:py-24">
@@ -15,8 +25,8 @@ export default function AboutPage() {
             <span className="h-1.5 w-1.5 rounded-full bg-gold" /> About Us
           </span>
           <h1 className="display-lg mt-5">
-            We Bridge the Gap
-            <span className="block text-gold">Between You and China's Factories</span>
+            Your China Sourcing Partner
+            <span className="block text-gold">Based in Guangzhou</span>
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
             SourcingBros was built on one simple idea: global buyers deserve direct access to
@@ -102,6 +112,26 @@ export default function AboutPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Block */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="rounded-3xl border border-line bg-white p-8 sm:p-12">
+            <h2 className="display-md text-navy">Your Trusted China Sourcing Agent in Guangzhou</h2>
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted">
+              <p>
+                SourcingBros is a professional China sourcing agent based in Guangzhou, the heart of China's manufacturing and export industry. Our strategic location gives us direct access to verified factories across Guangdong province and beyond — from vehicle plants in Chongqing to electronics manufacturers in Shenzhen. As your dedicated China procurement partner, we bridge the gap between global buyers and Chinese factories, eliminating middleman markups and ensuring factory-direct pricing on every order.
+              </p>
+              <p>
+                What sets us apart as a China sourcing company is our commitment to transparent pricing and quality inspection. We don't hide markups in product costs — our service fee is always separate and visible. Every order undergoes pre-shipment quality inspection with detailed photo and video reports before it leaves China. With 50+ verified factory relationships built over years of on-the-ground experience, we know which manufacturers deliver quality and which ones cut corners.
+              </p>
+              <p>
+                Whether you're importing from China for the first time or looking for a more reliable sourcing partner, SourcingBros handles the entire process end-to-end. From product sourcing and factory negotiation to quality control, export documentation, and global shipping to 40+ countries, we're your team on the ground in China. Import from China with confidence — our Guangzhou-based sourcing experts speak your language and handle everything from request to delivery.
+              </p>
+            </div>
           </div>
         </div>
       </section>

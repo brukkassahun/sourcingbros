@@ -1,12 +1,22 @@
 import { ChevronDown } from "lucide-react";
 import { faqs, whatsappLink } from "@/lib/site";
+import { SEO } from "@/lib/seo";
+import { BreadcrumbSchema } from "@/components/StructuredData";
 import Reveal from "@/components/Reveal";
 
-export const metadata = { title: "FAQ", description: "Answers to common questions about sourcing from China with SourcingBros — MOQs, pricing, shipping, quality, payments, and more." };
+export const metadata = {
+  title: SEO.pages.faq.title,
+  description: SEO.pages.faq.description,
+};
 
 export default function FAQPage() {
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "FAQ", path: "/faq" },
+      ]} />
+
       {/* Hero */}
       <section className="bg-navy-gradient text-white">
         <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-6 sm:py-24">
@@ -14,8 +24,8 @@ export default function FAQPage() {
             <span className="h-1.5 w-1.5 rounded-full bg-gold" /> FAQ
           </span>
           <h1 className="display-lg mt-5">
-            Frequently Asked
-            <span className="block text-gold">Questions</span>
+            China Sourcing FAQ
+            <span className="block text-gold">Questions & Answers</span>
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
             Everything you need to know about sourcing from China with SourcingBros. Can't
@@ -42,10 +52,34 @@ export default function FAQPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Still have questions? */}
+      {/* SEO Content Block */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="rounded-3xl border border-line bg-white p-8 sm:p-12">
+            <h2 className="display-md text-navy">Common Questions About Sourcing from China</h2>
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted">
+              <p>
+                Sourcing from China doesn't have to be complicated. As a professional China sourcing agent, SourcingBros answers the most common questions global buyers have about importing from China — from minimum order quantities and pricing to shipping, quality inspection, and payment methods. Whether you're sourcing vehicles, auto parts, electronics, or custom-manufactured goods, understanding the China procurement process helps you make informed decisions and avoid costly mistakes.
+              </p>
+              <p>
+                Many buyers wonder how working with a China sourcing agent compares to buying directly from factories. The key difference is that we provide factory-direct pricing without the risks — you get transparent pricing with no hidden markups, plus quality inspection, export documentation, and global shipping handled by experts on the ground in Guangzhou. Our verified factory relationships mean you're not gambling on unknown manufacturers. You get the benefit of our experience negotiating with Chinese factories and ensuring product quality before anything ships.
+              </p>
+              <p>
+                Common concerns about sourcing from China include product quality, shipping reliability, and payment security. At SourcingBros, we address these with pre-shipment quality inspection and photo reports on every order, real-time shipping tracking to 40+ countries, and secure payment terms. Our FAQ covers minimum order quantities, lead times, customs documentation, and the step-by-step sourcing process — everything you need to import from China with confidence. Still have questions? Contact our Guangzhou-based team directly via WhatsApp for personalized answers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Still have questions? */}
+      <section className="bg-cream pb-16 sm:pb-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <Reveal delay={300}>
-            <div className="mt-12 overflow-hidden rounded-3xl bg-navy-gradient p-8 text-center text-white">
+            <div className="overflow-hidden rounded-3xl bg-navy-gradient p-8 text-center text-white">
               <h3 className="font-display text-xl font-black">Still have questions?</h3>
               <p className="mx-auto mt-2 max-w-sm text-white/60">
                 We're happy to answer anything. Send us a message on WhatsApp.

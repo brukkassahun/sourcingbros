@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Mail, Phone, MessageCircle, MapPin, Clock, Send, Check } from "lucide-react";
 import { site, whatsappLink } from "@/lib/site";
+import { SEO } from "@/lib/seo";
+import { BreadcrumbSchema } from "@/components/StructuredData";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -28,6 +30,11 @@ export default function ContactPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Home", path: "/" },
+        { name: "Contact", path: "/contact" },
+      ]} />
+
       {/* Hero */}
       <section className="bg-navy-gradient text-white">
         <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-6 sm:py-24">
@@ -270,6 +277,26 @@ export default function ContactPage() {
                   </>
                 )}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Block */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="rounded-3xl border border-line bg-white p-8 sm:p-12">
+            <h2 className="display-md text-navy">Get a Free China Sourcing Quote from {SEO.organization.name}</h2>
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted">
+              <p>
+                Ready to start sourcing from China? Contact SourcingBros today for a free, no-obligation sourcing quote. As your dedicated China sourcing agent, we'll connect you directly to verified factories and provide factory-direct pricing within 48 hours. Whether you need vehicles, auto parts, car wraps, electronics, or custom-manufactured products, our Guangzhou-based team handles every step of the China procurement process — from factory verification to quality inspection and global shipping.
+              </p>
+              <p>
+                Getting a quote is simple. Fill out the form above with your product details, estimated quantity, and any specifications, and we'll compile your request and send it via WhatsApp for fast communication. You can also reach us directly by WhatsApp, email, or phone — whatever is most convenient. Our transparent pricing means you'll always see the factory price, our service fee, and shipping costs broken down separately, with no hidden markups or surprises.
+              </p>
+              <p>
+                SourcingBros serves importers in 40+ countries across Africa, the Middle East, Southeast Asia, Europe, and the Americas. Whether you're a first-time importer learning how to import from China or an experienced buyer looking for a more reliable sourcing partner, we provide the factory access, quality control, and logistics support you need. Contact us today and discover why businesses worldwide trust SourcingBros as their China sourcing agent.
+              </p>
             </div>
           </div>
         </div>
