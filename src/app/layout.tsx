@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site } from "@/lib/site";
 import { SEO } from "@/lib/seo";
 import Header from "@/components/Header";
@@ -91,6 +92,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Footer />
         <FloatingContact />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
