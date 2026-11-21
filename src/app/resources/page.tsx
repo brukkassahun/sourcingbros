@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, Clock, BookOpen } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Clock } from "lucide-react";
 import { SEO } from "@/lib/seo";
 import { whatsappLink } from "@/lib/site";
+import { articles } from "@/lib/articles";
 import Reveal from "@/components/Reveal";
 import { BreadcrumbSchema } from "@/components/StructuredData";
 
@@ -15,73 +17,6 @@ export const metadata = {
     url: `${SEO.organization.url}/resources`,
   },
 };
-
-const articles = [
-  {
-    slug: "how-to-find-reliable-china-factories",
-    title: "How to Find Reliable Chinese Factories: A Complete Guide for Importers",
-    excerpt: "Finding trustworthy factories in China is the #1 challenge for importers. Learn how to verify suppliers, check certifications, conduct factory audits, and avoid scams — without flying to China.",
-    readTime: "8 min read",
-    category: "Sourcing Guide",
-    keywords: ["China factory verification", "reliable suppliers China", "factory audit China"],
-  },
-  {
-    slug: "china-sourcing-agent-vs-trading-company",
-    title: "China Sourcing Agent vs Trading Company: Which Is Better?",
-    excerpt: "Should you use a sourcing agent or a trading company? We break down the differences in pricing, transparency, quality control, and service — so you can choose the right partner for your business.",
-    readTime: "6 min read",
-    category: "Sourcing Guide",
-    keywords: ["sourcing agent vs trading company", "China procurement", "sourcing company comparison"],
-  },
-  {
-    slug: "import-vehicles-from-china-guide",
-    title: "How to Import LHD Vehicles from China: Step-by-Step Guide",
-    excerpt: "Complete guide to importing left-hand-drive vehicles from China — choosing the right brand (Chery, Jetour, BYD, Geely), export documentation, shipping options (RoRo vs container), and customs clearance.",
-    readTime: "10 min read",
-    category: "Vehicle Sourcing",
-    keywords: ["import vehicles from China", "LHD car export China", "China vehicle import guide"],
-  },
-  {
-    slug: "negotiate-prices-with-chinese-factories",
-    title: "How to Negotiate Prices with Chinese Factories (Without Losing the Deal)",
-    excerpt: "Price negotiation with Chinese suppliers is an art. Learn the cultural nuances, negotiation tactics, and pricing structures that will get you the best factory-direct price — without damaging the relationship.",
-    readTime: "7 min read",
-    category: "Sourcing Guide",
-    keywords: ["negotiate China factory prices", "supplier negotiation China", "factory direct pricing"],
-  },
-  {
-    slug: "quality-inspection-china-imports",
-    title: "Pre-Shipment Quality Inspection in China: Why It Matters & How It Works",
-    excerpt: "Pre-shipment inspection is your last line of defense against defective products. Learn what AQL sampling is, what a quality inspection report looks like, and why you should never skip this step.",
-    readTime: "6 min read",
-    category: "Quality Control",
-    keywords: ["quality inspection China", "pre-shipment inspection", "AQL sampling China"],
-  },
-  {
-    slug: "shipping-from-china-to-africa",
-    title: "Shipping from China to Africa: Sea Freight, Air Freight & Express Guide",
-    excerpt: "Everything you need to know about shipping from China to African ports — sea freight (FCL & LCL), air freight, express courier, shipping costs, transit times, and customs documentation for Nigeria, Ghana, and more.",
-    readTime: "9 min read",
-    category: "Shipping & Logistics",
-    keywords: ["shipping China to Africa", "sea freight China Africa", "import customs Africa"],
-  },
-  {
-    slug: "car-wrap-ppf-sourcing-china",
-    title: "Sourcing Car Wraps & PPF from China: Complete Buyer's Guide",
-    excerpt: "China is the world's largest producer of car wrap films and PPF. Learn how to source PET color change films, TPU paint protection film, and window tint directly from Chinese manufacturers at factory-direct prices.",
-    readTime: "7 min read",
-    category: "Product Sourcing",
-    keywords: ["car wrap sourcing China", "PPF manufacturer China", "vinyl wrap wholesale China"],
-  },
-  {
-    slug: "avoid-common-china-sourcing-mistakes",
-    title: "10 Common China Sourcing Mistakes (And How to Avoid Them)",
-    excerpt: "From paying full upfront to skipping quality inspections, these are the most expensive mistakes importers make when sourcing from China — and exactly how to avoid each one.",
-    readTime: "8 min read",
-    category: "Sourcing Guide",
-    keywords: ["China sourcing mistakes", "import mistakes China", "sourcing pitfalls"],
-  },
-];
 
 export default function ResourcesPage() {
   return (
@@ -119,21 +54,27 @@ export default function ResourcesPage() {
                   href={`/resources/${article.slug}`}
                   className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-lg"
                 >
-                  <div className="flex h-40 items-center justify-center bg-navy-gradient">
-                    <BookOpen className="h-12 w-12 text-gold/40" strokeWidth={1} />
+                  <div className="relative h-44 overflow-hidden">
+                    <Image
+                      src={article.heroImage}
+                      alt={article.heroAlt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+                    <span className="absolute left-4 top-4 rounded-full bg-gold px-3 py-1 font-sans text-[10px] font-bold uppercase tracking-wider text-navy">
+                      {article.category}
+                    </span>
                   </div>
                   <div className="flex flex-1 flex-col p-6">
-                    <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-wider text-gold">
-                      <span>{article.category}</span>
-                      <span className="text-muted">·</span>
-                      <span className="flex items-center gap-1 text-muted">
-                        <Clock className="h-3 w-3" /> {article.readTime}
-                      </span>
+                    <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-muted">
+                      <Clock className="h-3 w-3" /> {article.readTime}
                     </div>
                     <h2 className="mt-3 font-display text-lg font-bold leading-snug text-navy group-hover:text-gold">
                       {article.title}
                     </h2>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{article.excerpt}</p>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{article.description}</p>
                     <span className="mt-4 inline-flex items-center gap-1 font-sans text-[11px] font-bold uppercase tracking-[0.16em] text-gold">
                       Read Article <ArrowRight className="h-3 w-3" strokeWidth={2} />
                     </span>
@@ -165,8 +106,16 @@ export default function ResourcesPage() {
                 on-the-ground experience in Guangzhou, Shenzhen, and across China's manufacturing hubs.
               </p>
               <p>
-                Have a question that's not covered here? <a href={whatsappLink("Hello! I have a question about sourcing from China.")} target="_blank" rel="noopener noreferrer" className="font-bold text-gold hover:underline">Message us on WhatsApp</a> —
-                we're happy to help.
+                Have a question that's not covered here?{" "}
+                <a
+                  href={whatsappLink("Hello! I have a question about sourcing from China.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-gold hover:underline"
+                >
+                  Message us on WhatsApp
+                </a>{" "}
+                — we're happy to help.
               </p>
             </div>
           </div>
