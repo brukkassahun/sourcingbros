@@ -91,7 +91,7 @@ export const batch3: Article[] = [
     readTime: "9 min read",
     publishedAt: "2025-11-20",
     keywords: ["shipping China to Africa", "sea freight China Africa", "import customs Africa", "China to Nigeria shipping"],
-    heroImage: "https://images.unsplash.com/photo-1494412651403-1c7a0c1e1e1e?w=1200&h=630&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1493946740644-2d8a1f1a6aff?w=1200&h=630&fit=crop",
     heroAlt: "Cargo ship at a port",
     content: [
       { type: "p", text: "Shipping from China to Africa is the final link in your sourcing chain. Choose the right shipping method and you'll save thousands. Choose wrong and you'll pay for slow delivery, damaged goods, or surprise customs fees. This guide covers everything you need to know about shipping from China to African destinations." },

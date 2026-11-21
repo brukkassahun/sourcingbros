@@ -10,7 +10,7 @@ export const batch2: Article[] = [
     readTime: "10 min read",
     publishedAt: "2025-12-01",
     keywords: ["import vehicles from China", "LHD car export China", "China vehicle import guide", "RoRo shipping vehicles"],
-    heroImage: "https://images.unsplash.com/photo-1549921296-3a6b6e6c5c3e?w=1200&h=630&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&h=630&fit=crop",
     heroAlt: "Cars lined up at a Chinese port for export",
     content: [
       { type: "p", text: "China has become one of the world's largest vehicle exporters, with brands like Chery, Jetour, BYD, and Geely gaining market share across Africa, the Middle East, and Southeast Asia. If you're considering importing LHD (left-hand-drive) vehicles from China, this guide walks you through the entire process — from choosing the right brand to clearing customs in your country." },
